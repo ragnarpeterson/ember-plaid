@@ -1,25 +1,36 @@
-# Ember-plaid
+# ember-plaid
 
-This README outlines the details of collaborating on this Ember addon.
+[Plaid's](https://plaid.com/) drop-in Link module as an Ember component.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```bash
+# From within your ember-cli project
+ember install ember-plaid
+```
 
-## Running
+## Configuration
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+```javascript
+// config/environment.js
+ENV['ember-plaid'] = {
+  clientName: 'REQUIRED',
+  product: 'auth',
+  key: 'test_key',
+  env: 'tartan'
+};
+```
 
-## Running Tests
+Check the [Link Docs](https://github.com/plaid/link#custom-integration) for all of the parameter options.
 
-* `ember test`
-* `ember test --server`
+## Usage
 
-## Building
+```hbs
+{{plaid-link action='processPlaidToken'}}
 
-* `ember build`
+{{!-- Or --}}
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+{{#plaid-link action='processPlaidToken'}}Verify Bank Account{{/plaid-link}}
+```
+
+Once a user has successfully onboarded via Plaid Link, the provided action will be called with the `public_token` passed as the sole argument. From there, you should follow the [instructions](https://github.com/plaid/link#step-3-write-server-side-handler) for exchanging the `public_token` for an `access_token`.

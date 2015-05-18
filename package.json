@@ -1,7 +1,7 @@
 {
   "name": "ember-plaid",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Plaid Link for your Ember app",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,11 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "https://github.com/jasonkriss/ember-plaid",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Jason Kriss",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
