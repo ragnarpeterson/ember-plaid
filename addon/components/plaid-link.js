@@ -1,3 +1,4 @@
+/* global Plaid */
 import Ember from 'ember';
 
 const OPTIONS = ['clientName', 'product', 'key', 'env', 'webhook'];
