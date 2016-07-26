@@ -7,5 +7,6 @@ export default PlaidLink.extend({
   clientName: plaidConfig.clientName,
   product: plaidConfig.product,
   key: plaidConfig.key,
-  env: plaidConfig.env
+  env: plaidConfig.env,
+  selectAccount: plaidConfig.selectAccount
 });
