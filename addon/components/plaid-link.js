@@ -16,6 +16,7 @@ export default Ember.Component.extend({
   key: null,
   env: null,
   webhook: null,
+  selectAccount: null,
 
   _link: null,
 
@@ -31,7 +32,7 @@ export default Ember.Component.extend({
     this._link = Plaid.create(options);
   }),
 
-  _onSuccess: function(token) {
-    this.sendAction('action', token);
+  _onSuccess: function(token, meta) {
+    this.sendAction('action', token, meta);
   }
 });
