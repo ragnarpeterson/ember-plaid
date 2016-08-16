@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const OPTIONS = ['clientName', 'product', 'key', 'env', 'webhook', 'longtail', 'selectAccount'];
+const OPTIONS = ['clientName', 'product', 'key', 'env', 'webhook', 'longtail', 'selectAccount', 'token'];
 const DEFAULT_LABEL = 'Link Bank Account';
 
 export default Ember.Component.extend({
@@ -16,6 +16,8 @@ export default Ember.Component.extend({
   key: null,
   env: null,
   webhook: null,
+  selectAccount: null,
+  token: null,
 
   _link: null,
 
@@ -31,7 +33,7 @@ export default Ember.Component.extend({
     this._link = Plaid.create(options);
   }),
 
-  _onSuccess: function(token) {
-    this.sendAction('action', token);
+  _onSuccess: function(token, meta) {
+    this.sendAction('action', token, meta);
   }
 });
