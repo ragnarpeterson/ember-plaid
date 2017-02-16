@@ -6,7 +6,7 @@ module.exports = {
 
   contentFor: function(type) {
     if (type === 'body') {
-      return '<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>';
+      return '<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>';
     }
   },
 };
