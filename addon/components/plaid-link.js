@@ -1,7 +1,16 @@
 import Ember from 'ember';
 
-const OPTIONS = ['clientName', 'product', 'key', 'env', 'webhook', 'longtail', 'selectAccount', 'token'];
 const DEFAULT_LABEL = 'Link Bank Account';
+const OPTIONS = [
+  'clientName',
+  'product',
+  'key',
+  'env',
+  'webhook',
+  'longtail',
+  'selectAccount',
+  'token'
+];
 
 export default Ember.Component.extend({
   tagName: 'button',
@@ -21,19 +30,19 @@ export default Ember.Component.extend({
 
   _link: null,
 
-  _open: Ember.on('click', function() {
-    this._link.open(this.get('institution'));
-  }),
-
-  _setup: Ember.on('init', function() {
+  didInsertElement() {
     const options = Ember.merge(this.getProperties(OPTIONS), {
       onSuccess: this._onSuccess.bind(this)
     });
 
     this._link = Plaid.create(options);
-  }),
+  },
 
-  _onSuccess: function(token, meta) {
+  click() {
+    this._link.open(this.get('institution'));
+  },
+
+  _onSuccess(token, meta) {
     this.sendAction('action', token, meta);
   }
 });
