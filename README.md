@@ -23,6 +23,9 @@ ENV['ember-plaid'] = {
 
 Check the [Link Docs](https://github.com/plaid/link#custom-integration) for all of the parameter options.
 
+The script tag adding Plaid JS will be automatically added to the body of the
+HTML. To disable this option, you can add `scriptTag: false` to `ember-plaid`.
+
 ## Usage
 
 ```hbs
@@ -38,13 +41,14 @@ Once a user has successfully onboarded via Plaid Link, the provided action will 
 Once you have the `public_token`, you can use it to initialize plaid-link component in "update mode". Update mode allows the user to update Plaid when they change their online-banking credentials or MFA.
 
 ```hbs
-{{plaid-link 
-  action='processPlaidToken' 
+{{plaid-link
+  action='processPlaidToken'
   token=$public_token}}
 
 {{!-- Or --}}
 
-{{#plaid-link 
-  action='processPlaidToken' 
+{{#plaid-link
+  action='processPlaidToken'
   token=$public_token}}Verify Bank Account{{/plaid-link}}
 ```
+
